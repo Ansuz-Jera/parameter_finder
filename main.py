@@ -33,7 +33,10 @@ if __name__ == '__main__':
         # Fit for the parameters a, b, c of the function func:
         popt, pcov = curve_fit(exponential, x_data, y_data)
         plt.plot(x_data, exponential(x_data, *popt), 'b--', label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(popt))
-        print()
+        print("The function aproximate to: %5.3f.e^(%5.3f.t) + %5.3f" % tuple(popt))
+        tau = 1 / popt[1]
+        constant = popt[0] * tau
+        print("The Tau is: %5.3f" % tau, "and the kis: %5.3f" % constant)
 
     plt.xlabel('x')
     plt.ylabel('y')
